@@ -12,7 +12,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-var MongoClient *mongo.Client
+var MongoDBClient *mongo.Client
 
 func InitMongoDB() error {
 	DATABASE_URL := os.Getenv("DATABASE_URL")
@@ -36,8 +36,8 @@ func InitMongoDB() error {
 		return err
 	}
 
-	MongoClient = client
+	MongoDBClient = client
 
-	fmt.Printf("%sConnected to MongoDB%s", color.Green, color.Reset)
+	fmt.Printf("%sConnected to MongoDB\n%s", color.Green, color.Reset)
 	return nil
 }
