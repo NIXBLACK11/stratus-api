@@ -37,15 +37,13 @@ func main() {
 	
 	mux.HandleFunc("/{username}/validate", middleware.AuthorizationMiddleware(routes.ValidUser))
 
-	// mux.HandleFunc("/{username}/projects", routes.UserProjects)
+	mux.HandleFunc("/{username}/projects", middleware.AuthorizationMiddleware(routes.UserProjectsHandler))
 
-	// mux.HandleFunc("/{username}/{project}", routes.ProjectURLs)
+	// mux.HandleFunc("/{username}/{projectname}", routes.ProjectURLs)
 
 	mux.HandleFunc("/{username}/addProject", middleware.AuthorizationMiddleware(routes.AddProjectHandler))
 
-	// mux.HandleFunc("/{username}/removeProject", middlewares.AuthorizationMiddleware(routes.RemoveProject))
-
-	// mux.HandleFunc("/{username}/checkProject", middlewares.AuthorizationMiddleware(routes.CheckProject))
+	// mux.HandleFunc("/{username}/{projectname}/removeProject", middlewares.AuthorizationMiddleware(routes.RemoveProject))
 
 	// CORS middleware
 	headers := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"})

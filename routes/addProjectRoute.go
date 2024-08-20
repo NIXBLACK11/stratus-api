@@ -37,7 +37,6 @@ func AddProjectHandler(w http.ResponseWriter, r *http.Request) {
 			w.Header().Set("Content-Type", "application/json")
 			w.WriteHeader(http.StatusOK)
 			w.Write(responseJSON)
-			return
 		}
 	} else {
 		http.Error(w, "Mathod not allowed", http.StatusMethodNotAllowed)
