@@ -16,7 +16,7 @@ func Signuphandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		exists, err := actions.CheckUserExists(user.Username, user.Password)
+		exists, err := actions.CheckUserExists(user.Username)
 
 		if err != nil {
 			http.Error(w, "User already exists1", http.StatusBadRequest)

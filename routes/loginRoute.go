@@ -18,7 +18,7 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		
-		exists, err := actions.CheckUserExists(user.Username, user.Password)
+		exists, err := actions.CheckUserExists(user.Username)
 
 		if err != nil {
 			http.Error(w, "Error occurred in user authentication", http.StatusBadRequest)

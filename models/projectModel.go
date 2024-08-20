@@ -1,5 +1,7 @@
 package models
 
+import "go.mongodb.org/mongo-driver/bson/primitive"
+
 type AlertTrigger struct {
 	SiteName string `json:"sitename"`
 	SiteUrl string `json:"siteurl"`
@@ -7,6 +9,7 @@ type AlertTrigger struct {
 }
 
 type Project struct {
-	ProjectName string `bson:"projectname"`
+	UserId primitive.ObjectID `json:"userid"`
+	ProjectName string `json:"projectname"`
 	AlertTriggers []AlertTrigger `bson:"alerttriggers"` 
 }

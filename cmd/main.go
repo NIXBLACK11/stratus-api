@@ -41,7 +41,7 @@ func main() {
 
 	// mux.HandleFunc("/{username}/{project}", routes.ProjectURLs)
 
-	// mux.HandleFunc("/{username}/addProject", middlewares.AuthorizationMiddleware(routes.AddProject))
+	mux.HandleFunc("/{username}/addProject", middleware.AuthorizationMiddleware(routes.AddProjectHandler))
 
 	// mux.HandleFunc("/{username}/removeProject", middlewares.AuthorizationMiddleware(routes.RemoveProject))
 
