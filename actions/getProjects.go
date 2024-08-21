@@ -36,7 +36,6 @@ func GetProjects(username string) ([]string, error) {
         if err := cursor.Decode(&project); err != nil {
             return nil, err
         }
-        // Extract project name (assuming "projectname" field in the document)
         if projectName, ok := project["projectname"].(string); ok {
             projects = append(projects, projectName)
         }
