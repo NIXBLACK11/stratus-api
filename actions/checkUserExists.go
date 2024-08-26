@@ -29,7 +29,7 @@ func CheckUserExists(username string) (bool, error) {
 	}).Decode(&user)
 	if err!=nil {
 		if err==mongo.ErrNoDocuments {
-			return false, err
+			return false, nil
 		}
 		return false, err
 	}
